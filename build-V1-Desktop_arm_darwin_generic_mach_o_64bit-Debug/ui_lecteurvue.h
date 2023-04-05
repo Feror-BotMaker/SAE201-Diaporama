@@ -91,14 +91,7 @@ public:
 
         image = new QLabel(centralwidget);
         image->setObjectName(QString::fromUtf8("image"));
-        image->setEnabled(true);
-        QSizePolicy sizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(1);
-        sizePolicy.setHeightForWidth(image->sizePolicy().hasHeightForWidth());
-        image->setSizePolicy(sizePolicy);
         image->setScaledContents(true);
-        image->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(image);
 
