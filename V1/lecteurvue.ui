@@ -102,6 +102,28 @@
      <height>36</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_Fichier">
+    <property name="title">
+     <string>&amp;Fichier</string>
+    </property>
+    <addaction name="actionSortir"/>
+   </widget>
+   <widget class="QMenu" name="menuParam_tre">
+    <property name="title">
+     <string>&amp;Paramètre</string>
+    </property>
+    <widget class="QMenu" name="menuVItesse_de_d_filement">
+     <property name="title">
+      <string>VItesse de défilement</string>
+     </property>
+     <addaction name="actionToutes_les_2_secondes"/>
+    </widget>
+    <addaction name="actionChanger_diaporama"/>
+    <addaction name="actionEnlever_diaporama"/>
+    <addaction name="menuVItesse_de_d_filement"/>
+   </widget>
+   <addaction name="menu_Fichier"/>
+   <addaction name="menuParam_tre"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_quitter">
@@ -122,6 +144,26 @@
   <action name="action_vitesse_defilement">
    <property name="text">
     <string>Vitesse de défilement</string>
+   </property>
+  </action>
+  <action name="actionSortir">
+   <property name="text">
+    <string>Sortir</string>
+   </property>
+  </action>
+  <action name="actionChanger_diaporama">
+   <property name="text">
+    <string>Changer diaporama</string>
+   </property>
+  </action>
+  <action name="actionEnlever_diaporama">
+   <property name="text">
+    <string>Enlever diaporama</string>
+   </property>
+  </action>
+  <action name="actionToutes_les_2_secondes">
+   <property name="text">
+    <string>Toutes les 2 secondes</string>
    </property>
   </action>
  </widget>
