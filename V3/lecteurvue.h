@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <vector>
+#include <QTimer>
 #include <QPixmap>
 #include "image.h"
 #include "pageapropos.h"
@@ -27,6 +28,8 @@ public:
     unsigned int numDiaporamaCourant();
 public slots:
     void avancer();             // incrémente _posImageCourante, modulo nbImages()
+    void demarrerAuto();
+    void arreterAuto();
     void reculer();             // décrémente _posImageCourante, modulo nbImages()
     void sortir();              // Slot pour quitter l'app avec QCoreApplication::exit()
     void aPropos();             // Affiche la fenêtre "A propos"
@@ -39,7 +42,8 @@ private:
                                         de l'image courante.
                                         Indéfini quand diaporama vide.
                                         Démarre à 0 quand diaporama non vide */
-    PageAPropos *_aPropos;
+    PageAPropos *_aPropos;           // Page contenant la version, la date et les auteurs.
+    QTimer *_timer;
 private:
     void chargerDiaporama();    // charge dans _diaporama les images du _numDiaporamaCourant
     void viderDiaporama();      // vide _diaporama de tous ses objets image et les delete

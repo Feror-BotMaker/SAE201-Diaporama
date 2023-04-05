@@ -9,8 +9,11 @@ LecteurVue::LecteurVue(QWidget *parent)
     _numDiaporamaCourant = 0;   // =  le lecteur est vide
     _posImageCourante = 0;
     _aPropos = new PageAPropos;
+    _timer = new QTimer(this);
     connect(this->ui->suivant, SIGNAL(clicked()), this, SLOT(avancer()));
     connect(this->ui->precedent, SIGNAL(clicked()), this, SLOT(reculer()));
+    connect(_timer, SIGNAL(timeout()), this, SLOT(avancer()));
+    connect(this->ui->lancer_diaporama, SIGNAL(clicked()), this, SLOT(demarrerAuto()));
     connect(this->ui->actionSortir, SIGNAL(triggered()), this, SLOT(sortir()));
     connect(this->ui->action_propos_de, SIGNAL(triggered()), this, SLOT(aPropos()));
     chargerDiaporama();
@@ -27,6 +30,21 @@ void LecteurVue::avancer()
     (this)->_posImageCourante = ((this)->_posImageCourante + 1) % nbImages();
     this->afficher();
 }
+
+void LecteurVue::demarrerAuto() {
+    _timer->start(2000);
+    disconnect(this->ui->lancer_diaporama, SIGNAL(clicked()), this, SLOT(demarrerAuto()));
+    connect(this->ui->lancer_diaporama, SIGNAL(clicked()), this, SLOT(arreterAuto()));
+    this->ui->lancer_diaporama->setText("Arrêter diaporama");
+}
+
+void LecteurVue::arreterAuto() {
+    _timer->stop();
+    disconnect(this->ui->lancer_diaporama, SIGNAL(clicked()), this, SLOT(arreterAuto()));
+    connect(this->ui->lancer_diaporama, SIGNAL(clicked()), this, SLOT(demarrerAuto()));
+    this->ui->lancer_diaporama->setText("Lancer diaporama");
+}
+
 
 void LecteurVue::reculer()
 {
