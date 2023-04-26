@@ -2,6 +2,7 @@
 #define LECTEURVUE_H
 
 #include <QMainWindow>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LecteurVue; }
@@ -17,5 +18,6 @@ public:
 
 private:
     Ui::LecteurVue *ui;
+    QLabel *LModeActif;
 };
 #endif // LECTEURVUE_H
