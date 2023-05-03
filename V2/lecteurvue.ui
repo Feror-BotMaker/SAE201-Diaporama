@@ -172,7 +172,7 @@
   </action>
   <action name="actionChanger_diaporama">
    <property name="text">
-    <string>Changer diaporama</string>
+    <string>Charger diaporama</string>
    </property>
   </action>
   <action name="actionEnlever_diaporama">

@@ -6,7 +6,7 @@ ChangeurVitesse::ChangeurVitesse(QWidget *parent) :
     ui(new Ui::ChangeurVitesse)
 {
     ui->setupUi(this);
-    QRegExp carAutorises("^(?:[1-9]|[1-5][0-9]|60)$");
+    QRegExp carAutorises("[0-6]{0,1}[0-9]{0,1}");
     QRegExpValidator *validateur = new QRegExpValidator(carAutorises, this);
     ui->LEVitesse->setValidator(validateur);
     connect(ui->SVitesse, SIGNAL(sliderMoved(int)), this, SLOT(updateLabel()));
@@ -19,10 +19,7 @@ ChangeurVitesse::~ChangeurVitesse()
 }
 
 int ChangeurVitesse::getVitesse() {
-    if (1 <= ui->LEVitesse->text().toInt() and ui->LEVitesse->text().toInt() <= 60) {
-        return ui->LEVitesse->text().toInt();
-    }
-    return 2;
+    return ui->LEVitesse->text().toInt();
 }
 
 void ChangeurVitesse::updateLabel() {

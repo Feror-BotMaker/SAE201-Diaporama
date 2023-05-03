@@ -112,15 +112,9 @@
     <property name="title">
      <string>&amp;Paramètre</string>
     </property>
-    <widget class="QMenu" name="menuVItesse_de_d_filement">
-     <property name="title">
-      <string>VItesse de défilement</string>
-     </property>
-     <addaction name="actionToutes_les_2_secondes"/>
-    </widget>
     <addaction name="actionChanger_diaporama"/>
     <addaction name="actionEnlever_diaporama"/>
-    <addaction name="menuVItesse_de_d_filement"/>
+    <addaction name="actionVitesse"/>
    </widget>
    <widget class="QMenu" name="menuAide">
     <property name="title">
@@ -160,7 +154,7 @@
   </action>
   <action name="actionChanger_diaporama">
    <property name="text">
-    <string>Changer diaporama</string>
+    <string>Charger diaporama</string>
    </property>
   </action>
   <action name="actionEnlever_diaporama">
@@ -176,6 +170,11 @@
   <action name="action_propos_de">
    <property name="text">
     <string>À propos de...</string>
+   </property>
+  </action>
+  <action name="actionVitesse">
+   <property name="text">
+    <string>Changer la vitesse</string>
    </property>
   </action>
  </widget>
