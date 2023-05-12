@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="titre">
+     <widget class="QLabel" name="lTitre">
       <property name="text">
        <string>Titre</string>
       </property>
@@ -37,7 +37,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Image</string>
+       <string/>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -50,7 +50,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="categorie">
+       <widget class="QLabel" name="lCategorie">
         <property name="text">
          <string>Catégorie</string>
         </property>
@@ -70,7 +70,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="rang">
+       <widget class="QLabel" name="lRang">
         <property name="text">
          <string>Rang</string>
         </property>
@@ -81,21 +81,24 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="precedent">
+       <widget class="QPushButton" name="pbPrecedent">
         <property name="text">
          <string>Précédent</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="lancer_diaporama">
+       <widget class="QPushButton" name="pbToggleAuto">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Lancer Diaporama</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="suivant">
+       <widget class="QPushButton" name="pbSuivant">
         <property name="text">
          <string>Suivant</string>
         </property>

@@ -37,7 +37,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Image</string>
+       <string/>
       </property>
       <property name="scaledContents">
        <bool>true</bool>

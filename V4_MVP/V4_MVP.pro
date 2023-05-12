@@ -13,15 +13,17 @@ SOURCES += \
     image.cpp \
     main.cpp \
     lecteurvue.cpp \
-    pageapropos.cpp
-    image.cpp
+    modele.cpp \
+    pageapropos.cpp \
+    presentation.cpp
 
 HEADERS += \
     changeurvitesse.h \
     image.h \
     lecteurvue.h \
-    pageapropos.h
-    image.h
+    modele.h \
+    pageapropos.h \
+    presentation.h
 
 FORMS += \
     changeurvitesse.ui \
