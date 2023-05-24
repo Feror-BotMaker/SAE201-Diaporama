@@ -46,14 +46,14 @@ void Presentation::demanderDecharger() {
 }
 
 void Presentation::demanderAPropos() {
-    _pageAPropos->show();
+    _pageAPropos->exec();
 }
 
 void Presentation::demanderChangerVitesse() {
     if (_leModele->getEtat() == Modele::Automatique) {
         _timer->stop();
     }
-    _changeurVitesse->show();
+    _changeurVitesse->exec();
     _leModele->setVitesse(_changeurVitesse->getVitesse());
     if (_leModele->getEtat() == Modele::Automatique) {
         _timer->start(_leModele->getVitesse() * 1000); // Multiplié par 1000 pour transformer les secondes en millisecondes.

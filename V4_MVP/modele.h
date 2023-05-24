@@ -18,7 +18,7 @@ public:
     unsigned int numDiaporamaCourant();
     enum Etat {Manuel, Automatique, Déchargé};
     Etat getEtat();
-    unsigned int getVitesse();
+    int getVitesse();
     void setVitesse(int);
     void toggleAuto();
     void chargerDiaporama();    // charge dans _diaporama les images du _numDiaporamaCourant

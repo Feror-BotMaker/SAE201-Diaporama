@@ -2,7 +2,7 @@
 #include "ui_pageapropos.h"
 
 PageAPropos::PageAPropos(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::PageAPropos)
 {
     ui->setupUi(this);

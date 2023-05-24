@@ -1,13 +1,13 @@
 #ifndef PAGEAPROPOS_H
 #define PAGEAPROPOS_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class PageAPropos;
 }
 
-class PageAPropos : public QWidget
+class PageAPropos : public QDialog
 {
     Q_OBJECT
 
