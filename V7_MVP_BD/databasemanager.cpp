@@ -54,3 +54,16 @@ int DatabaseManager::getVitesse(int id) {
         std::cout << "Base non ouverte" << std::endl;
     }
 }
+
+void DatabaseManager::setVitesse(int id, int nouvelleVitesse) {
+    if(_laBase.open()) {
+        _query = new QSqlQuery();
+        _query->prepare("UPDATE Diaporamas SET vitesseDefilement = :nouv WHERE Diaporamas.idDiaporama = :id");
+        _query->bindValue(":id", id);
+        _query->bindValue(":nouv", nouvelleVitesse);
+        _query->exec();
+        _query->next();
+    } else {
+        std::cout << "Base non ouverte" << std::endl;
+    }
+}

@@ -21,6 +21,7 @@ public:
     ImageDansDiapo getImagesDeDiapo(int);
     ListeDiaporamas getDiaporamas();
     int getVitesse(int);
+    void setVitesse(int, int);
 private:
     QSqlDatabase _laBase;
     QSqlQuery *_query;

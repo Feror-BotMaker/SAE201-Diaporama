@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ChangeurDiaporama</class>
- <widget class="QDialog" name="ChangeurDiaporama">
+ <class>ChangeurVitesse</class>
+ <widget class="QDialog" name="ChangeurVitesse">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,32 +15,34 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTableWidget" name="tableWidget">
-     <property name="columnCount">
-      <number>3</number>
-     </property>
-     <attribute name="verticalHeaderVisible">
-      <bool>false</bool>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Id</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Titre</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Vitesse</string>
-      </property>
-     </column>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Passer toutes les :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="LEVitesse"/>
+     </item>
+    </layout>
    </item>
    <item>
-    <widget class="QSpinBox" name="spinBox"/>
+    <widget class="QSlider" name="SVitesse">
+     <property name="maximum">
+      <number>60</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>2</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -59,7 +61,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ChangeurDiaporama</receiver>
+   <receiver>ChangeurVitesse</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -75,7 +77,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ChangeurDiaporama</receiver>
+   <receiver>ChangeurVitesse</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

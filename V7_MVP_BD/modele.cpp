@@ -130,6 +130,7 @@ int Modele::getVitesse() {
 
 void Modele::setVitesse(int vitesse) {
     _vitesseActuelle = vitesse;
+    _laBaseDeDonnees->setVitesse(numDiaporamaCourant(), vitesse);
 }
 
 void Modele::toggleAuto() {
