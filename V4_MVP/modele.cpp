@@ -244,5 +244,6 @@ void Modele::toggleAuto() {
         _unEtat = Manuel;
     } else if (_unEtat == Manuel) {
         _unEtat = Automatique;
+        _posImageCourante = 0;
     }
 }

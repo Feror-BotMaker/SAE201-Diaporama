@@ -45,10 +45,10 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
         break;
     }
 
-    ui->lTitre->setText(QString::fromStdString(imageActuelle->getTitre()));
-    ui->lCategorie->setText(QString::fromStdString(imageActuelle->getCategorie()));
+    ui->lTitre->setText(imageActuelle->getTitre());
+    ui->lCategorie->setText(imageActuelle->getCategorie());
     ui->lRang->setText(QString::number(imageActuelle->getRang()));
-    ui->image->setPixmap(QPixmap(QString::fromStdString(imageActuelle->getChemin())));
+    ui->image->setPixmap(QPixmap(imageActuelle->getChemin()));
 }
 
 void LecteurVue::avancer() {

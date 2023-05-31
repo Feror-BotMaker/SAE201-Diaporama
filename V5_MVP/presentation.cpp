@@ -51,7 +51,7 @@ void Presentation::demanderToggleAuto() {
 }
 
 void Presentation::demanderCharger() {
-    _leModele->chargerDiaporama();
+    _leModele->changerDiaporama(1);
     _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
 }
 
