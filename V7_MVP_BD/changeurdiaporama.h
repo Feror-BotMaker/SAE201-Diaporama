@@ -21,6 +21,7 @@ private:
     Ui::ChangeurDiaporama *ui;
 private slots:
     void onCellClicked(int, int);
+    void onCellDoubleClicked(int, int);
 };
 
 #endif // CHANGEURDIAPORAMA_H

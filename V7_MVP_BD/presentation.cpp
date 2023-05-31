@@ -71,9 +71,20 @@ void Presentation::demanderChangerVitesse() {
     if (_leModele->getEtat() == Modele::Automatique) {
         _timer->stop();
     }
+    _changeurVitesse->setVitesse(_leModele->getVitesse());
     _changeurVitesse->exec();
     _leModele->setVitesse(_changeurVitesse->getVitesse());
     if (_leModele->getEtat() == Modele::Automatique) {
         _timer->start(_leModele->getVitesse() * 1000); // Multiplié par 1000 pour transformer les secondes en millisecondes.
     }
+}
+
+void Presentation::demanderChangerTitre(QString nouvTitre) {
+    _leModele->changerTitre(nouvTitre);
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderChangerPath(QString nouvPath) {
+    _leModele->changerPath(nouvPath);
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
 }

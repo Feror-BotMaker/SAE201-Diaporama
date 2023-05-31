@@ -16,6 +16,7 @@ public:
     explicit ChangeurVitesse(QWidget *parent = nullptr);
     ~ChangeurVitesse();
     int getVitesse();
+    void setVitesse(int); // Faire commencer le line edit et le slider à la vitesse actuelle.
 private:
     Ui::ChangeurVitesse *ui;
 public slots:

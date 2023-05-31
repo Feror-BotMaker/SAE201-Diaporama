@@ -23,6 +23,8 @@ public:
     void chargerDiaporama();    // charge dans _diaporama les images du _numDiaporamaCourant
     void viderDiaporama();      // vide _diaporama de tous ses objets image et les delete
     ListeDiaporamas getListeDiapos();
+    void changerTitre(QString);
+    void changerPath(QString);
 private:
     unsigned _numDiaporamaCourant;   // numéro du diaporama courant, par défaut 0
     ImageDansDiapo _diaporama;            // pointeurs vers les images du diaporama

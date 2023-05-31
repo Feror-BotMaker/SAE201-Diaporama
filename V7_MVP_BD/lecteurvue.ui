@@ -16,12 +16,25 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="lTitre">
+     <widget class="QLineEdit" name="lTitre">
       <property name="text">
-       <string>Titre</string>
+       <string/>
       </property>
       <property name="alignment">
-       <set>Qt::AlignHCenter</set>
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Titre</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lPath">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Chemin d'accès</string>
       </property>
      </widget>
     </item>

@@ -20,6 +20,8 @@ public:
     void demanderDecharger();
     void demanderAPropos();
     void demanderChangerVitesse();
+    void demanderChangerTitre(QString);
+    void demanderChangerPath(QString);
 public slots:
     void demanderAvancerAuto();
 private:

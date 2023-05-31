@@ -34,6 +34,8 @@ private slots:
     void changerVitesse();      // Ouvre la boite de dialogue pour changer la vitesse de défilement.
     void chargerDiaporama();    // charge dans _diaporama les images du _numDiaporamaCourant
     void viderDiaporama();      // vide _diaporama de tous ses objets image et les delete
+    void modifierTitre(QString);
+    void modifierPath(QString);
 public slots:
     void avancerAuto();
 };

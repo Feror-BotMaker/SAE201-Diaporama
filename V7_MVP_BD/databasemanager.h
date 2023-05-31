@@ -22,6 +22,8 @@ public:
     ListeDiaporamas getDiaporamas();
     int getVitesse(int);
     void setVitesse(int, int);
+    void setTitre(unsigned int, QString);
+    void setPath(unsigned int, QString);
 private:
     QSqlDatabase _laBase;
     QSqlQuery *_query;

@@ -145,3 +145,13 @@ void Modele::toggleAuto() {
 ListeDiaporamas Modele::getListeDiapos() {
     return _laBaseDeDonnees->getDiaporamas();
 }
+
+void Modele::changerTitre(QString nouvTitre) {
+    imageCourante()->setTitre(nouvTitre);
+    _laBaseDeDonnees->setTitre(imageCourante()->getId(), nouvTitre);
+}
+
+void Modele::changerPath(QString nouvPath) {
+    imageCourante()->setChemin(nouvPath);
+    _laBaseDeDonnees->setPath(imageCourante()->getId(), nouvPath);
+}

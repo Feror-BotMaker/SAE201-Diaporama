@@ -8,14 +8,17 @@ class Image
 {
 public:
     Image(unsigned int pRang=0,
-              QString pCategorie="", QString pTitre="", QString pChemin = "");
+              QString pCategorie="", QString pTitre="", QString pChemin = "", unsigned int id = 0);
     unsigned int getRang();
     QString getCategorie();
     QString getTitre();
     QString getChemin();
     void afficher();           // affiche tous les champs de l'image
-
+    void setTitre(QString);
+    void setChemin(QString);
+    unsigned int getId();
 private:
+    unsigned int _idPhoto;
     unsigned int _rang;         /* rang de l'image au sein du diaporama
                                    auquel l'image est associée */
     QString _titre;              // intitulé de l'image

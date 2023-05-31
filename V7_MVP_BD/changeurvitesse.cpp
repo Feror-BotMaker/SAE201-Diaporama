@@ -32,3 +32,8 @@ void ChangeurVitesse::updateLabel() {
 void ChangeurVitesse::updateSlider() {
     ui->SVitesse->setValue(ui->LEVitesse->text().toInt());
 }
+
+void ChangeurVitesse::setVitesse(int vitesseActuelle) {
+    ui->SVitesse->setValue(vitesseActuelle);
+    ui->LEVitesse->setText(QString::number(vitesseActuelle));
+}

@@ -12,12 +12,12 @@ DatabaseManager::DatabaseManager(QObject *parent)
 ImageDansDiapo DatabaseManager::getImagesDeDiapo(int numDiapo) {
     if(_laBase.open()) {
         _query = new QSqlQuery();
-        _query->prepare("SELECT DiaposDansDiaporama.rang, Familles.nomFamille, Diapos.titrePhoto, Diapos.uriPhoto FROM Diapos JOIN Familles ON Familles.idFamille = Diapos.idFam JOIN DiaposDansDiaporama ON DiaposDansDiaporama.idDiapo = Diapos.idphoto WHERE DiaposDansDiaporama.idDiaporama = :id ORDER BY DiaposDansDiaporama.rang");
+        _query->prepare("SELECT DiaposDansDiaporama.rang, Familles.nomFamille, Diapos.titrePhoto, Diapos.uriPhoto, Diapos.idphoto FROM Diapos JOIN Familles ON Familles.idFamille = Diapos.idFam JOIN DiaposDansDiaporama ON DiaposDansDiaporama.idDiapo = Diapos.idphoto WHERE DiaposDansDiaporama.idDiaporama = :id ORDER BY DiaposDansDiaporama.rang");
         _query->bindValue(":id", numDiapo);
         _query->exec();
         _contenuDiapo.clear();
         while(_query->next()) {
-            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), PATH_JOKIN + _query->value(3).toString()));
+            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), PATH_JOKIN + _query->value(3).toString(), _query->value(4).toInt()));
         }
         _laBase.close();
     } else {
@@ -52,6 +52,7 @@ int DatabaseManager::getVitesse(int id) {
         return _query->value(0).toInt();
     } else {
         std::cout << "Base non ouverte" << std::endl;
+        return 0;
     }
 }
 
@@ -61,6 +62,33 @@ void DatabaseManager::setVitesse(int id, int nouvelleVitesse) {
         _query->prepare("UPDATE Diaporamas SET vitesseDefilement = :nouv WHERE Diaporamas.idDiaporama = :id");
         _query->bindValue(":id", id);
         _query->bindValue(":nouv", nouvelleVitesse);
+        _query->exec();
+        _query->next();
+    } else {
+        std::cout << "Base non ouverte" << std::endl;
+    }
+}
+
+void DatabaseManager::setTitre(unsigned int id, QString nouveauTitre) {
+    if(_laBase.open()) {
+        _query = new QSqlQuery();
+        _query->prepare("UPDATE Diapos SET titrePhoto = :nouv WHERE Diapos.idphoto = :id");
+        _query->bindValue(":id", id);
+        _query->bindValue(":nouv", nouveauTitre);
+        _query->exec();
+        _query->next();
+    } else {
+        std::cout << "Base non ouverte" << std::endl;
+    }
+}
+
+void DatabaseManager::setPath(unsigned int id, QString nouveauPath) {
+    if(_laBase.open()) {
+        _query = new QSqlQuery();
+        _query->prepare("UPDATE Diapos SET uriPhoto = :nouv WHERE Diapos.idphoto = :id");
+        _query->bindValue(":id", id);
+        nouveauPath.remove(0, PATH_JOKIN.length());
+        _query->bindValue(":nouv", nouveauPath);
         _query->exec();
         _query->next();
     } else {
