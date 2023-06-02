@@ -23,7 +23,7 @@
    <item>
     <widget class="QLabel" name="numVersion">
      <property name="text">
-      <string>Lecteur de diaporama - V3</string>
+      <string>Lecteur de diaporama - V7 MVP + BD</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -33,7 +33,7 @@
    <item>
     <widget class="QLabel" name="dateCreation">
      <property name="text">
-      <string>05/04/2023</string>
+      <string>31/04/2023</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -43,7 +43,7 @@
    <item>
     <widget class="QLabel" name="auteurs">
      <property name="text">
-      <string>Auteurs de l'application : Bodin Maximilien, Dumas Valentin et Suares Jokin</string>
+      <string>Auteurs de l'application : Bodin Maximilien et Suares Jokin</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
