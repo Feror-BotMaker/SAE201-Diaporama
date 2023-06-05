@@ -1,0 +1,90 @@
+#include "presentation.h"
+#include "changeurvitesse.h"
+#include "pageapropos.h"
+#include "lecteurvue.h"
+#include <QObject>
+
+Presentation::Presentation(LecteurVue* laVue, Modele* leModele, PageAPropos* pageAPropos, ChangeurVitesse* changeurVitesse)
+{
+    _laVue = laVue;
+    _leModele = leModele;
+    _pageAPropos = pageAPropos;
+    _changeurVitesse = changeurVitesse;
+    _timer = new QTimer();
+    QObject::connect(_timer, SIGNAL(timeout()), _laVue, SLOT(avancerAuto()));
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderAvancer() {
+    if (_leModele->getEtat() == Modele::Automatique) {
+        _leModele->toggleAuto();
+        _timer->stop();
+    } else {
+        _leModele->avancer();
+    }
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderReculer() {
+    if (_leModele->getEtat() == Modele::Automatique) {
+        _leModele->toggleAuto();
+        _timer->stop();
+    } else {
+        _leModele->reculer();
+    }
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderAvancerAuto() {
+    _leModele->avancer();
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderToggleAuto() {
+    _leModele->toggleAuto();
+    if (_leModele->getEtat() == Modele::Automatique) {
+        _timer->start(_leModele->getVitesse() * 1000); // Multiplié par 1000 pour transformer les secondes en millisecondes.
+    } else {
+        _timer->stop();
+    }
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderCharger() {
+    ChangeurDiaporama *changeur = new ChangeurDiaporama(_leModele->getListeDiapos());
+    changeur->exec();
+    _leModele->changerDiaporama(changeur->getIdChoisi());
+    delete changeur;
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderDecharger() {
+    _leModele->viderDiaporama();
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderAPropos() {
+    _pageAPropos->exec();
+}
+
+void Presentation::demanderChangerVitesse() {
+    if (_leModele->getEtat() == Modele::Automatique) {
+        _timer->stop();
+    }
+    _changeurVitesse->setVitesse(_leModele->getVitesse());
+    _changeurVitesse->exec();
+    _leModele->setVitesse(_changeurVitesse->getVitesse());
+    if (_leModele->getEtat() == Modele::Automatique) {
+        _timer->start(_leModele->getVitesse() * 1000); // Multiplié par 1000 pour transformer les secondes en millisecondes.
+    }
+}
+
+void Presentation::demanderChangerTitre(QString nouvTitre) {
+    _leModele->changerTitre(nouvTitre);
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
+
+void Presentation::demanderChangerPath(QString nouvPath) {
+    _leModele->changerPath(nouvPath);
+    _laVue->updateVue(_leModele->getEtat(), _leModele->imageCourante());
+}
