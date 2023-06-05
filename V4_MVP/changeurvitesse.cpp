@@ -6,8 +6,8 @@ ChangeurVitesse::ChangeurVitesse(QWidget *parent) :
     ui(new Ui::ChangeurVitesse)
 {
     ui->setupUi(this);
-    QRegExp carAutorises("^(?:[1-9]|[1-5][0-9]|60)$");
-    QRegExpValidator *validateur = new QRegExpValidator(carAutorises, this);
+    QRegularExpression carAutorises("^(?:[1-9]|[1-5][0-9]|60)$");
+    QRegularExpressionValidator *validateur = new QRegularExpressionValidator(carAutorises, this);
     ui->LEVitesse->setValidator(validateur);
     connect(ui->SVitesse, SIGNAL(sliderMoved(int)), this, SLOT(updateLabel()));
     connect(ui->LEVitesse, SIGNAL(textChanged(QString)), this, SLOT(updateSlider()));
