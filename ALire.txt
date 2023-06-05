@@ -1,0 +1,15 @@
+Sous Windows
+
+- Connexion à la base de donnée
+	Modifier le nom du connecteur ODBC pour le remplacer par le vôtre (la constante DATABASE_NAME à la ligne 13 du fichier databasemanager.h)
+
+- Chemin d'accès aux images
+	Veuillez déposer le dossier images dans le même dossier que l'executable (dossier build par défaut), cette information peut être retrouvée dans le fichier databasemanager.h, à la ligne 33 par QDir::curentPath() qui est une fonction qui renvoie le path du dossier contenant l'executable.
+
+Sous MacOS
+
+- Connexion à la base de donnée
+	Modifier le nom du connecteur ODBC pour le remplacer par le vôtre (la constante DATABASE_NAME à la ligne 13 du fichier databasemanager.h)
+
+- Chemin d'accès aux images
+	Veuillez déposer le dossier images dans le même dossier que l'executable (dossier Contents/MacOs dans le packet de l'application par défaut), cette information peut être retrouvée dans le fichier databasemanager.h, à la ligne 33 par QDir::curentPath() qui est une fonction qui renvoie le path du dossier contenant l'executable.

@@ -6,9 +6,10 @@
 #include "image.h"
 #include <QSqlQuery>
 #include <QVariant>
+#include <QDir>
 
-#define CONNECT_TYPE "QSQLITE"
-#define DATABASE_NAME "/Users/feror/S201.db"
+#define CONNECT_TYPE "QODBC"
+#define DATABASE_NAME "S201"
 
 typedef vector<Image*> ImageDansDiapo;   // Structure de données contenant les infos sur les images
 
@@ -22,8 +23,7 @@ private:
     QSqlDatabase _laBase;
     QSqlQuery *_query;
     ImageDansDiapo _contenuDiapo;
-    const QString PATH_JOKIN = "/Users/feror/QtProjects/SAE201-Diaporama";
-    const QString PATH_MAXIMILIEN = "F:\\mbodin008\\SAE201\\Images";
+    const QString basePath = QDir::currentPath();
 };
 
 #endif // DATABASEMANAGER_H

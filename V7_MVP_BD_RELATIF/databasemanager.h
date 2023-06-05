@@ -9,8 +9,8 @@
 #include <diaporama.h>
 #include <QDir>
 
-#define CONNECT_TYPE "QSQLITE"
-#define DATABASE_NAME "/Users/feror/S201.db"
+#define CONNECT_TYPE "QODBC"
+#define DATABASE_NAME "S201"
 
 typedef vector<Diaporama*> ListeDiaporamas;   // Structure de données contenant les infos sur les images
 

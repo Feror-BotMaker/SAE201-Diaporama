@@ -17,7 +17,7 @@ ImageDansDiapo DatabaseManager::getImagesDeDiapo(int numDiapo) {
         _query->exec();
         _contenuDiapo.clear();
         while(_query->next()) {
-            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), PATH_JOKIN + _query->value(3).toString()));
+            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), basePath + _query->value(3).toString()));
         }
         _laBase.close();
     } else {

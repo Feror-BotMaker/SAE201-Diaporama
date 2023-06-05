@@ -17,7 +17,7 @@ ImageDansDiapo DatabaseManager::getImagesDeDiapo(int numDiapo) {
         _query->exec();
         _contenuDiapo.clear();
         while(_query->next()) {
-            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), PATH_JOKIN + _query->value(3).toString(), _query->value(4).toInt()));
+            _contenuDiapo.push_back(new Image(_query->value(0).toInt(), _query->value(1).toString(), _query->value(2).toString(), basePath + _query->value(3).toString(), _query->value(4).toInt()));
         }
         _laBase.close();
     } else {
@@ -87,7 +87,7 @@ void DatabaseManager::setPath(unsigned int id, QString nouveauPath) {
         _query = new QSqlQuery();
         _query->prepare("UPDATE Diapos SET uriPhoto = :nouv WHERE Diapos.idphoto = :id");
         _query->bindValue(":id", id);
-        nouveauPath.remove(0, PATH_JOKIN.length());
+        nouveauPath.remove(0, basePath.length());
         _query->bindValue(":nouv", nouveauPath);
         _query->exec();
         _query->next();

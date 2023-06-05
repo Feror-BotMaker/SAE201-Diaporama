@@ -2,7 +2,7 @@
 #define CHANGEURVITESSE_H
 
 #include <QDialog>
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 
 namespace Ui {
 class ChangeurVitesse;
