@@ -1,9 +1,10 @@
 #include "modele.h"
+#include <QDir>
 
 Modele::Modele()
 {
     _numDiaporamaCourant = 0;   // =  le lecteur est vide
-    _tapisPlaceHolder = new Image(0, "Catégorie", "Titre", "/Users/feror/QtProjects/SAE201-Diaporama/cartesDisney/Disney_tapis.gif");
+    _tapisPlaceHolder = new Image(0, "Catégorie", "Titre", QDir::currentPath() + "/cartesDisney/Disney_tapis.gif");
     _laBaseDeDonnees = new DatabaseManager();
 }
 
