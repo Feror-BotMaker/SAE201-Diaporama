@@ -31,16 +31,22 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
     switch (etatActuel) {
     case Modele::Déchargé:
         _LModeActif->setText(QString::fromStdString("Déchargé"));
+        ui->pbPrecedent->setEnabled(false);
         ui->pbToggleAuto->setEnabled(false);
+        ui->pbSuivant->setEnabled(false);
         break;
     case Modele::Manuel:
         _LModeActif->setText(QString::fromStdString("Manuel"));
+        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
+        ui->pbSuivant->setEnabled(true);
         ui->pbToggleAuto->setText("Lancer le diaporama");
         break;
     case Modele::Automatique:
         _LModeActif->setText(QString::fromStdString("Automatique"));
+        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
+        ui->pbSuivant->setEnabled(true);
         ui->pbToggleAuto->setText("Arrêter le diaporama");
         break;
     }
