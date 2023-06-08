@@ -45,6 +45,8 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
     case Modele::Déchargé:
         _LModeActif->setText(QString::fromStdString("Déchargé"));
         ui->pbToggleAuto->setEnabled(false);
+        ui->pbPrecedent->setEnabled(false);
+        ui->pbSuivant->setEnabled(false);
         ui->lTitre->setEnabled(false);
         ui->lPath->setEnabled(false);
         ui->lCategorie->setEnabled(false);
@@ -56,7 +58,9 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
         break;
     case Modele::Manuel:
         _LModeActif->setText(QString::fromStdString("Manuel"));
+        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
+        ui->pbSuivant->setEnabled(true);
         ui->lTitre->setEnabled(true);
         ui->lPath->setEnabled(true);
         ui->lCategorie->setEnabled(true);
@@ -69,7 +73,9 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
         break;
     case Modele::Automatique:
         _LModeActif->setText(QString::fromStdString("Automatique"));
+        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
+        ui->pbSuivant->setEnabled(true);
         ui->lTitre->setEnabled(false);
         ui->lPath->setEnabled(false);
         ui->lCategorie->setEnabled(true);
