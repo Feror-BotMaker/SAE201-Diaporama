@@ -18,6 +18,17 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(this->ui->actionVitesse, SIGNAL(triggered()), this, SLOT(changerVitesse()));
     connect(this->ui->lTitre, SIGNAL(textEdited(QString)), this, SLOT(modifierTitre(QString)));
     connect(this->ui->lPath, SIGNAL(textEdited(QString)), this, SLOT(modifierPath(QString)));
+
+    // Raccourcis clavier
+    raccourcisSuivant = new QShortcut(QKeySequence(Qt::Key_N), this);
+    raccourcisPrecedent = new QShortcut(QKeySequence(Qt::Key_B), this);
+    raccourcisQuitter = new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q), this);
+    raccourcisToggleAuto = new QShortcut(QKeySequence(Qt::Key_A), this);
+
+    connect(raccourcisSuivant, SIGNAL(activated()), this, SLOT(avancer()));
+    connect(raccourcisPrecedent, SIGNAL(activated()), this, SLOT(reculer()));
+    connect(raccourcisQuitter, SIGNAL(activated()), this, SLOT(sortir()));
+    connect(raccourcisToggleAuto, SIGNAL(activated()), this, SLOT(toggleAuto()));
 }
 
 LecteurVue::~LecteurVue()
@@ -33,35 +44,41 @@ void LecteurVue::updateVue(Modele::Etat etatActuel, Image* imageActuelle) {
     switch (etatActuel) {
     case Modele::Déchargé:
         _LModeActif->setText(QString::fromStdString("Déchargé"));
-        ui->pbPrecedent->setEnabled(false);
         ui->pbToggleAuto->setEnabled(false);
-        ui->pbSuivant->setEnabled(false);
         ui->lTitre->setEnabled(false);
         ui->lPath->setEnabled(false);
         ui->lCategorie->setEnabled(false);
         ui->lRang->setEnabled(false);
+        raccourcisPrecedent->setEnabled(false);
+        raccourcisPrecedent->setEnabled(false);
+        raccourcisQuitter->setEnabled(false);
+        raccourcisToggleAuto->setEnabled(false);
         break;
     case Modele::Manuel:
         _LModeActif->setText(QString::fromStdString("Manuel"));
-        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
-        ui->pbSuivant->setEnabled(true);
         ui->lTitre->setEnabled(true);
         ui->lPath->setEnabled(true);
         ui->lCategorie->setEnabled(true);
         ui->lRang->setEnabled(true);
-        ui->pbToggleAuto->setText("Lancer le diaporama");
+        ui->pbToggleAuto->setText("Lancer le diaporama (A)");
+        raccourcisSuivant->setEnabled(true);
+        raccourcisPrecedent->setEnabled(true);
+        raccourcisQuitter->setEnabled(true);
+        raccourcisToggleAuto->setEnabled(true);
         break;
     case Modele::Automatique:
         _LModeActif->setText(QString::fromStdString("Automatique"));
-        ui->pbPrecedent->setEnabled(true);
         ui->pbToggleAuto->setEnabled(true);
-        ui->pbSuivant->setEnabled(true);
         ui->lTitre->setEnabled(false);
         ui->lPath->setEnabled(false);
         ui->lCategorie->setEnabled(true);
         ui->lRang->setEnabled(true);
-        ui->pbToggleAuto->setText("Arrêter le diaporama");
+        ui->pbToggleAuto->setText("Arrêter le diaporama (A)");
+        raccourcisSuivant->setEnabled(true);
+        raccourcisPrecedent->setEnabled(true);
+        raccourcisQuitter->setEnabled(true);
+        raccourcisToggleAuto->setEnabled(true);
         break;
     }
 

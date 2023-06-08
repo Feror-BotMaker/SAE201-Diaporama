@@ -5,6 +5,7 @@
 #include <QLabel>
 #include "modele.h"
 #include "image.h"
+#include <QShortcut>
 
 class Presentation;
 
@@ -25,6 +26,10 @@ private:
     Ui::LecteurVue *ui;
     Presentation *_laPresentation;
     QLabel *_LModeActif;
+    QShortcut *raccourcisSuivant;
+    QShortcut *raccourcisPrecedent;
+    QShortcut *raccourcisQuitter;
+    QShortcut *raccourcisToggleAuto;
 private slots:
     void avancer();             // incrémente _posImageCourante, modulo nbImages()
     void toggleAuto();          // Active/désactive le mode automatique
